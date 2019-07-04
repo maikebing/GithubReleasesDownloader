@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29025.244
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GithubDownloader", "GithubDownloader\GithubDownloader.csproj", "{C8BC1D69-4C54-4F5C-8F3C-8231A0D2F1F0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Downloader", "GithubDownloader\Downloader.csproj", "{C8BC1D69-4C54-4F5C-8F3C-8231A0D2F1F0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GithubDownloaderTests", "GithubDownloaderTests\GithubDownloaderTests.csproj", "{81D4E1B1-5D06-4DB3-9200-0E2FF99E7624}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IoTSharp.Releases", "IoTSharp.Releases\IoTSharp.Releases.csproj", "{EBE177DA-6CF2-4653-8748-0D1D76C2E6F7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,8 +23,15 @@ Global
 		{81D4E1B1-5D06-4DB3-9200-0E2FF99E7624}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{81D4E1B1-5D06-4DB3-9200-0E2FF99E7624}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{81D4E1B1-5D06-4DB3-9200-0E2FF99E7624}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EBE177DA-6CF2-4653-8748-0D1D76C2E6F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EBE177DA-6CF2-4653-8748-0D1D76C2E6F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EBE177DA-6CF2-4653-8748-0D1D76C2E6F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EBE177DA-6CF2-4653-8748-0D1D76C2E6F7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7D9EBDA5-A389-4E08-BCC7-7B652B6F8D59}
 	EndGlobalSection
 EndGlobal

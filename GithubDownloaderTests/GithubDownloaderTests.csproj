@@ -60,9 +60,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\GithubDownloader\GithubDownloader.csproj">
+    <ProjectReference Include="..\GithubDownloader\Downloader.csproj">
       <Project>{c8bc1d69-4c54-4f5c-8f3c-8231a0d2f1f0}</Project>
-      <Name>GithubDownloader</Name>
+      <Name>Downloader</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IoTSharp.Releases\IoTSharp.Releases.csproj">
+      <Project>{ebe177da-6cf2-4653-8748-0d1d76c2e6f7}</Project>
+      <Name>IoTSharp.Releases</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

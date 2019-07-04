@@ -8,9 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 
-namespace GithubDownloader
+namespace IoTSharp.Releases
 {
-    public class GithubDownloader
+    public class ReleaseDownloader
     {
         private readonly string _baseUri;
 
@@ -20,13 +20,35 @@ namespace GithubDownloader
 
         private readonly string _releaseUri;
 
-        public GithubDownloader(string baseUri, string accessToken, string userAgent)
+        private string _user;
+        private string _repo;
+        private string _token;
+
+
+        public ReleaseDownloader(string _url, string accessToken)
         {
-            _baseUri = baseUri;
+            var uri = new Uri(_url);
+            _baseUri = $"{ GetBaseUri(uri)}/repos/{GetUserFromUri(uri)}/{GetRepoFromUri(uri)}";
             _accessToken = accessToken;
-            _userAgent = userAgent;
+            _userAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3829.0 Safari/537.36 Edg/77.0.197.1"; ;
             _releaseUri = GetReleaseUri();
         }
+
+        private static string GetUserFromUri(Uri uri)
+        {
+            return !uri.LocalPath.Contains("/") ? string.Empty : uri.Segments[1].TrimEnd('/');
+        }
+
+        private static string GetRepoFromUri(Uri uri)
+        {
+            return !uri.LocalPath.Contains("/") ? string.Empty : uri.Segments[2].TrimEnd('/');
+        }
+
+        private static string GetBaseUri(Uri uri)
+        {
+            return uri.Host.Equals("github.com", StringComparison.OrdinalIgnoreCase) ? "https://api.github.com" : $"{uri.Scheme}://{uri.Host}/api/v3";
+        }
+
 
         public ICollection<GithubRelease> GetDataForAllReleases()
         {
@@ -38,15 +60,15 @@ namespace GithubDownloader
         {
 
             Console.WriteLine("Requesting: {0}", requestingUri);
-            var request = (HttpWebRequest) WebRequest.Create(new Uri(requestingUri));
+            var request = (HttpWebRequest)WebRequest.Create(new Uri(requestingUri));
             request.UserAgent = _userAgent;
 
             var response = request.GetResponse();
-            Console.WriteLine(((HttpWebResponse) response).StatusDescription);
+            Console.WriteLine(((HttpWebResponse)response).StatusDescription);
             // Get the stream containing content returned by the server.
 
             var responseFromServer = ReadResponseFromServer(response);
-            
+
             var releases = JsonConvert.DeserializeObject<List<GithubRelease>>(responseFromServer);
 
             var parser = new LinkHeaderParser();

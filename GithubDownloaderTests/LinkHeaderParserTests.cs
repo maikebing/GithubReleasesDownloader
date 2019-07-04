@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using GithubDownloader;
+using IoTSharp.Releases;
 using Xunit;
 
 namespace GithubDownloaderTests
